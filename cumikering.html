@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CumiKering.id - Pusat Perdagangan Cumi Kering Berkualitas</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #0a3d62;
+            color: #fff;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f6b93b;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f6b93b;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)), url('https://images.unsplash.com/photo-1565026057447-bc90a3dceb3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 5%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #f6b93b;
+            color: #0a3d62;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s, background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffd966;
+            transform: scale(1.05);
+        }
+
+        /* Section Umum */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0a3d62;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #f6b93b;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Tentang */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1 1 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1 1 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #0a3d62;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-text i {
+            color: #f6b93b;
+            margin-right: 10px;
+        }
+
+        /* Produk */
+        .products {
+            background: #f9f9f9;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #0a3d62;
+        }
+
+        .product-info p {
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f6b93b;
+        }
+
+        /* Kontak */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1 1 250px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #f6b93b;
+            width: 40px;
+        }
+
+        .contact-item span {
+            color: #555;
+        }
+
+        .contact-form {
+            flex: 2 1 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #f6b93b;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #0a3d62;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1e5f8e;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a3d62;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #f6b93b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #0a3d62;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Cumi<span>Kering.id</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Cumi Kering Berkualitas Ekspor</h1>
+            <p>Nikmati cita rasa laut yang autentik dengan cumi kering pilihan, diproses secara higienis dan siap memenuhi kebutuhan kuliner Anda.</p>
+            <a href="#produk" class="btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <section id="tentang">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1565685224275-9622368f326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Proses pengeringan cumi">
+            </div>
+            <div class="about-text">
+                <h3>Pusat Perdagangan Cumi Kering Terpercaya</h3>
+                <p><i class="fas fa-check-circle"></i> Berdiri sejak 2010, kami telah menjadi mitra andalan para pedagang dan restoran di seluruh Indonesia.</p>
+                <p><i class="fas fa-check-circle"></i> Cumi segar langsung dari nelayan, diolah dengan metode pengeringan alami tanpa bahan pengawet, mempertahankan rasa dan gizi.</p>
+                <p><i class="fas fa-check-circle"></i> Tersedia berbagai varian: cumi asin, tawar, pedas, dan ukuran jumbo. Kami juga melayani pengiriman ke seluruh Indonesia.</p>
+                <p><i class="fas fa-check-circle"></i> Sertifikat halal dan uji laboratorium untuk menjamin kualitas terbaik.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="produk">
+        <h2 class="section-title">Produk Unggulan</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1565685224275-9622368f326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cumi Kering Asin">
+                </div>
+                <div class="product-info">
+                    <h3>Cumi Kering Asin</h3>
+                    <p>Gurih asin alami, cocok untuk balado atau tumis.</p>
+                    <div class="product-price">Rp 85.000 / kg</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1584265530478-99060b5d6f5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cumi Kering Tawar">
+                </div>
+                <div class="product-info">
+                    <h3>Cumi Kering Tawar</h3>
+                    <p>Tanpa garam tambahan, cocok untuk aneka olahan.</p>
+                    <div class="product-price">Rp 95.000 / kg</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1565685224275-9622368f326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cumi Kering Pedas">
+                </div>
+                <div class="product-info">
+                    <h3>Cumi Kering Pedas</h3>
+                    <p>Bumbu pedas meresap, siap santap sebagai camilan.</p>
+                    <div class="product-price">Rp 105.000 / kg</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1565685224275-9622368f326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cumi Kering Jumbo">
+                </div>
+                <div class="product-info">
+                    <h3>Cumi Kering Jumbo</h3>
+                    <p>Ukuran besar, daging tebal, kualitas premium.</p>
+                    <div class="product-price">Rp 150.000 / kg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jl. Ikan Cumi No. 45, Kel. Nelayan, Kota Makassar, Sulawesi Selatan</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+62 812-3456-7890 (Telp/WA)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@cumikering.id</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Senin - Sabtu : 08.00 - 17.00 WITA</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="color: #0a3d62; margin-bottom: 1.5rem;">Kirim Pesan</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="No. WhatsApp (opsional)">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tulis pesan Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Pesan</button>
+                </form>
+                <p id="formFeedback" style="margin-top: 1rem; color: green;"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CumiKering.id. All rights reserved.</p>
+        <p>Menyediakan cumi kering berkualitas untuk seluruh Indonesia</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling untuk link navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Tutup menu mobile jika terbuka
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Simulasi pengiriman form (tidak benar-benar mengirim)
+        const contactForm = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('formFeedback');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formFeedback.textContent = 'Terima kasih! Pesan Anda telah terkirim (demo).';
+            contactForm.reset();
+            setTimeout(() => {
+                formFeedback.textContent = '';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
